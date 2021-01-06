@@ -5,14 +5,20 @@ from view.file_creator import Creator
 
 root_dir = os.getcwd()
 files_dir = root_dir+"/files"
+
+#Function to create new fies.
 def create_file():
     popup = Creator(main_window, root_dir)
     popup.mainloop()
+
+#Function created to browse all files in the files directory.
 def browse_files():
     chosen_file = filedialog.askopenfilename(initialdir=files_dir,
             title="Archivos...",
             filetypes = ( ("Archivos de texto","*.txt*"), ("Todos","*.*")) )
-    print(chosen_file)
+    #print(chosen_file)
+
+#Function to delete existing files.
 def delete_file():
     chosen_file = filedialog.askopenfilename(initialdir=files_dir,
             title="Archivo a eliminar",
@@ -20,6 +26,8 @@ def delete_file():
     if chosen_file != '':
         #print("Deleted: %s" % chosen_file)
         subprocess.run(["rm", chosen_file])
+
+#Function to open existing files.
 def open_file():
     chosen_file = filedialog.askopenfilename(initialdir=files_dir,
          title="Archivo a eliminar",
@@ -43,9 +51,9 @@ file_explorer = tkinter.Button(main_window, text="Mostrar archivos", command= br
 #Show file
 show_file = tkinter.Button(main_window, text="Abrir archivo", command = open_file )
 
-create_file.pack()
-delete_button.pack()
-file_explorer.pack()
-show_file.pack()
+create_file.grid(row=0, column=0)
+delete_button.grid(row=0, column=2)
+file_explorer.grid(row=0, column=3)
+show_file.grid(row=0, column=4)
 
 main_window.mainloop()
