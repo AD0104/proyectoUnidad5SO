@@ -1,0 +1,10 @@
+Altas en archivo: Se captura una estructua en memoria con sus datos pertinentes y despues se graba
+la estructua al archivo en disco.
+
+Consultas de archivos: Se pretende desplegar todos los registros del archivo en disco a la 
+pantalla ya sea consola o mejor aún, página html.
+
+Modificaciones de registros o archivos: Problema comun, donde los datos originales ya grabados
+se tienen que cambiar o actualizar.
+
+Bajas de registros:
