@@ -1,7 +1,9 @@
 import tkinter
 from tkinter import filedialog
 import os, sys, subprocess
+from PyQt5.QtWidgets import QApplication
 from view.file_creator import Creator
+from view.file_tree import FileSystemView
 
 root_dir = os.getcwd()
 files_dir = root_dir+"/files"
@@ -13,10 +15,16 @@ def create_file():
 
 #Function created to browse all files in the files directory.
 def browse_files():
+    app = QApplication(sys.argv)
+    popup = FileSystemView(files_dir)
+    popup.show()
+    sys.exit(app.exec_() )
+    """
     chosen_file = filedialog.askopenfilename(initialdir=files_dir,
             title="Archivos...",
             filetypes = ( ("Archivos de texto","*.txt*"), ("Todos","*.*")) )
     #print(chosen_file)
+    """
 
 #Function to delete existing files.
 def delete_file():
